@@ -4,46 +4,22 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 
-import { Loginschema } from "@/app/components/LoginSchema/LoginSchema";
-import Footer from "@/app/components/footer/Footer";
-import Link from "next/link";
+import { Loginschema } from "../LoginSchema/LoginSchema";
+import Footer from "../footer/Footer";
 
 function SignIn() {
   const {
     register,
     handleSubmit,
-
+    
     formState: { errors },
   } = useForm({
     resolver: yupResolver(Loginschema),
   });
 
   const onSubmit = (data: any) => {
-    const storedUsers = localStorage.getItem("signupData");
-  
-    if (storedUsers) {
-      const parsedUsers = JSON.parse(storedUsers);
-  
-      if (Array.isArray(parsedUsers)) {
-  
-        const user = parsedUsers.find(
-          (user: { email: string; password: string }) =>
-            user.email === data.email && user.password === data.password
-        );
-  
-        if (user) {
-            window.location.href = '/home';
-        } else {
-          alert("Invalid email or password");
-        }
-      } 
-    } else {
-      alert("No account found. Please sign up first.");
-    }
+    console.log(data);
   };
-  
-  
-  
 
   return (
     <>
@@ -92,17 +68,17 @@ function SignIn() {
             <button className="bg-blue-500 text-white font-bold text-[21px] py-3 h-[50px] rounded-md w-[360px]">
               Log In
             </button>
-            <p className="text-[#0866ff] cursor-pointer hover:underline">forgor password?</p>
+            <p className="text-[#0866ff] cursor-pointer ">forgor password?</p>
             <div className="w-full h-[1px] bg-gray-300"></div>
             {!errors.password && !errors.email && (
               <div className="h-[1px]"></div>
             )}
-            <Link href={"/signup"} className="w-[192px font-bold ] text-white rounded-[6px] text-[17px] leading-[48px] px-[16px] h-[50px] bg-[#42b72a] cursor-pointer">
+            <div className="w-[192px] text-white rounded-[6px] text-[17px] leading-[48px] px-[16px] h-[50px] bg-[#42b72a] cursor-pointer">
               Create new account
-            </Link>
+            </div>
           </form>
           <p className="text-center border-t-0 text-[#1c1e21] font-sf-pro text-sm font-normal pt-0 mt-[24px]">
-            <span className="text-black font-bold cursor-pointer focus:outline-none hover:underline">
+            <span className="text-black font-bold cursor-pointer focus:outline-none focus:underline">
               Create a Page{" "}
             </span>
             for a celebrity, brand, or business.
