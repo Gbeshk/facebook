@@ -1,31 +1,79 @@
 "use client";
 import React, { useState } from "react";
-
+import data from "../../../../data.json";
 function Post() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [postText, setPostText] = useState("");
-
-
-
-  function Submit(e: React.FormEvent) {
-    e.preventDefault();
-    console.log("Post Text:", postText);
-    setPostText(""); 
-    setIsModalOpen(false);  
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  interface User {
+    id: number;
   }
+  
+  const userString = localStorage.getItem('currentUser');
+  let currentId: number | undefined;
+  
+  if (userString) {
+    const user: User = JSON.parse(userString);
+    currentId = user.id;  
+  }
+  
+  if (currentId !== undefined) {
+    console.log(currentId);
+  } else {
+    console.log("User not found or invalid data in localStorage.");
+  }
+
+  const Submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!postText.trim()) {
+      alert("Please write something before posting");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/posts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: currentId,
+          content: postText,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || "Failed to create post");
+      }
+
+      setPostText("");
+      setIsModalOpen(false);
+      window.location.reload()
+
+    } catch (error) {
+      console.error("Post creation error:", error);
+      alert("Failed to create post. Check console for details.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
-      <div className="w-[50%] h-[124px] bg-white mt-[20px] shadow-lg rounded-lg p-4">
-        <div className="flex items-center">
+      <div className="max-w-2xl h-[124px] bg-white mt-[20px] shadow-lg rounded-lg p-4">
+        <div className="flex items-center gap-3">
           <div className="w-[40px] h-[40px] rounded-full bg-gray-100 flex justify-center items-center">
             <span className="text-sm">A</span>
           </div>
           <div
             className="w-full h-[40px] bg-gray-100 hover:bg-gray-200 cursor-pointer rounded-[20px] p-2"
-            onClick={()=> {
-                setIsModalOpen(true);
-
+            onClick={() => {
+              setIsModalOpen(true);
             }}
           >
             <p className="text-gray-500">What's on your mind?</p>
@@ -35,19 +83,19 @@ function Post() {
         <div className="flex justify-around mt-[10px] w-full">
           <div className="flex items-center gap-[8px] w-[33%] justify-center cursor-pointer rounded-[8px] hover:bg-gray-100 h-[40px]">
             <div className="w-[24px] h-[24px] bg-[url('https://static.xx.fbcdn.net/rsrc.php/v4/yr/r/c0dWho49-X3.png')] bg-no-repeat bg-contain" />
-            <p className="text-[#65686c] font-[15px] font-semibold">
+            <p className="text-[#65686c] text-[15px] font-semibold">
               Live video
             </p>
           </div>
           <div className="flex items-center gap-[8px] w-[33%] justify-center cursor-pointer rounded-[8px] hover:bg-gray-100 h-[40px]">
             <div className="w-[24px] h-[24px] bg-[url('https://static.xx.fbcdn.net/rsrc.php/v4/y7/r/Ivw7nhRtXyo.png')] bg-no-repeat bg-contain" />
-            <p className="text-[#65686c] font-[15px] font-semibold">
+            <p className="text-[#65686c] text-[15px] font-semibold">
               Photo/Video
             </p>
           </div>
           <div className="flex items-center gap-[8px] w-[33%] justify-center cursor-pointer rounded-[8px] hover:bg-gray-100 h-[40px]">
             <div className="w-[24px] h-[24px] bg-[url('https://static.xx.fbcdn.net/rsrc.php/v4/yd/r/Y4mYLVOhTwq.png')] bg-no-repeat bg-contain" />
-            <p className="text-[#65686c] font-[15px] font-semibold">
+            <p className="text-[#65686c] text-[15px] font-semibold">
               Feeling/Activity
             </p>
           </div>
@@ -57,9 +105,8 @@ function Post() {
       {isModalOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
-          onClick={()=> {
+          onClick={() => {
             setIsModalOpen(false);
-
           }}
         >
           <div
@@ -68,9 +115,8 @@ function Post() {
           >
             <button
               className="absolute top-4 right-4 text-black text-2xl"
-              onClick={()=> {
+              onClick={() => {
                 setIsModalOpen(false);
-
               }}
             >
               &times;
@@ -82,9 +128,8 @@ function Post() {
               <input
                 type="text"
                 value={postText}
-                onChange={(e)=> {
-                    setPostText(e.target.value);
-
+                onChange={(e) => {
+                  setPostText(e.target.value);
                 }}
                 placeholder="Write something..."
                 className="w-full h-[40px] border border-gray-300 p-2 rounded-md mb-4"

@@ -31,22 +31,51 @@ function SignUp() {
     resolver: yupResolver(SignUpSchema),
   });
 
-  const onSubmit = (data: any) => {
-    // Get the existing users from localStorage
-    const existingUsers = localStorage.getItem("signupData");
-    
-    // Parse the existing users or initialize an empty array if no users exist
-    let usersArray = existingUsers ? JSON.parse(existingUsers) : [];
+  const onSubmit = async (data: any) => {
+    const userData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      day: data.day,
+      month: data.month,
+      year: data.year,
+      gender: data.gender,
+      email: data.email,
+      password: data.password,
+    };
   
-    // Add the new user to the array
-    usersArray.push(data);
+    try {
+      const BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:3000' : '';
   
-    // Save the updated array back to localStorage
-    localStorage.setItem("signupData", JSON.stringify(usersArray));
+      const response = await fetch(`${BASE_URL}/api/register`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userData),
+      });
   
-    // Show an alert and redirect to the signin page
-    alert("Account Registered");
-    window.location.href = '/signin';
+      const result = await response.json();
+  
+      if (!response.ok) {
+        // Handle API error responses (4xx/5xx)
+        throw new Error(result.message || 'Registration failed');
+      }
+  
+      alert('Account Registered Successfully');
+      window.location.href = '/signin';
+    } catch (error) {
+      // Proper type narrowing for the error
+      let errorMessage = 'Error while registering. Please try again.';
+      
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      } else if (typeof error === 'string') {
+        errorMessage = error;
+      }
+  
+      console.error('Registration error:', error);
+      alert(errorMessage);
+    }
   };
   
   return (

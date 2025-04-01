@@ -9,7 +9,7 @@ function HeaderLeft() {
             <img
               src="https://www.facebook.com/images/icons-large/fb-xl-gradient-2x.png"
               alt="Facebook Logo"
-              className="w-24 h-auto rounded-[50%] w-[40px] h-[40px]"
+              className=" rounded-[50%] w-[40px] h-[40px]"
             />
           </Link>
           <div className="w-[40px] h-[40px] rounded-[50%] bg-[#f0f2f5] flex items-center justify-center cursor-pointer">

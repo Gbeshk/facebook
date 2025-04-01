@@ -13,7 +13,9 @@ function HeaderRight() {
     <>
       <div className="flex items-center justify-center gap-[10px]">
         <div className="w-[105px] h-[36px] bg-gray-200 flex items-center justify-center rounded-[20px]">
-          <Link href="/" className="color-black font-semibold">Find friends</Link>
+          <Link href="/" className="color-black font-semibold">
+            Find friends
+          </Link>
         </div>
 
         <div

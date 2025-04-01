@@ -51,11 +51,11 @@ const Slider = () => {
 
   return (
     <>
-      <div className="w-full max-w-[652px] mt-[20px]">
-        <Swiper slidesPerView={5} className="mySwiper">
+      <div className="w-full max-w-2xl mt-[20px]">
+        <Swiper slidesPerView={6} spaceBetween={5} className="mySwiper">
           {stories.map((image, index) => (
             <SwiperSlide key={index}>
-              <div className="relative group w-[120px]">
+              <div className="relative group max-w-sm">
                 <Image
                   className="absolute top-[10px] left-[10px] w-[40px] h-[40px] object-cover rounded-full border-2 border-[#0866ff] cursor-pointer"
                   src={image}
