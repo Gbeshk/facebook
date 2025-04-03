@@ -462,5 +462,18 @@
     "password": "Luka12345",
     "posts": [],
     "createdAt": "2025-04-01T23:24:32.125Z"
+  },
+  {
+    "id": 11,
+    "firstName": "fwafaw",
+    "lastName": "fawfwa",
+    "day": 2,
+    "month": 4,
+    "year": 2023,
+    "gender": "female",
+    "email": "wfwfw@fawf",
+    "password": "fwafwfE2",
+    "posts": [],
+    "createdAt": "2025-04-03T15:04:55.123Z"
   }
 ]

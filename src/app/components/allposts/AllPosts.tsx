@@ -1,4 +1,5 @@
 "use client";
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
 type Post = {
@@ -159,7 +160,7 @@ export default function AllPosts() {
           <div className="p-4 flex items-center">
             <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-200">
               {post.authorPic ? (
-                <img src={post.authorPic} alt={post.author} className="w-full h-full object-cover" />
+                <Image width={100} height={100} src={post.authorPic} alt={post.author} className="w-full h-full object-cover" />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-gray-500">
                   {post.author.charAt(0)}
@@ -183,7 +184,7 @@ export default function AllPosts() {
             <p className="text-gray-800 mb-2">{post.content}</p>
             {post.imageUrl && (
               <div className="mt-2 rounded-lg overflow-hidden">
-                <img 
+                <Image width={100} height={100}
                   src={post.imageUrl} 
                   alt="Post content" 
                   className="w-full h-auto max-h-[500px] object-contain"

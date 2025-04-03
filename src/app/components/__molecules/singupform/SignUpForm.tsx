@@ -1,22 +1,16 @@
 "use client";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SignUpSchema } from "@/app/schemas/signupschema/SignUpSchema"; 
+import { SignUpSchema } from "@/app/schemas/signupschema/SignUpSchema";
+import * as yup from "yup";
+
+type FormData = yup.InferType<typeof SignUpSchema>;
+
 function SignUpForm() {
   const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
   ];
   const years = Array.from({ length: 100 }, (_, index) => 2023 - index);
 
@@ -24,11 +18,11 @@ function SignUpForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormData>({
     resolver: yupResolver(SignUpSchema),
   });
 
-  const onSubmit = async (data: any) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     const userData = {
       firstName: data.firstName,
       lastName: data.lastName,
@@ -73,7 +67,6 @@ function SignUpForm() {
       alert(errorMessage);
     }
   };
-
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
