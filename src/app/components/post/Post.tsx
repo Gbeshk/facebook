@@ -113,7 +113,7 @@ function Post() {
               setIsModalOpen(true);
             }}
           >
-            <p className="text-gray-500">What's on your mind?</p>
+            <p className="text-gray-500">What&apos;s on your mind?</p>
           </div>
         </div>
         <div className="w-full h-[1px] bg-gray-200 mt-[10px]"></div>

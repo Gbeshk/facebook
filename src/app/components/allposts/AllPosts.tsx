@@ -9,7 +9,7 @@ type Post = {
   createdAt: string;
   likes: number;
   likedBy: number[];
-  comments: any[];
+  comments: string[];
 };
 
 type User = {

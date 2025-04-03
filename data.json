@@ -336,10 +336,8 @@
         "content": "afwfawfaw",
         "imageUrl": "/uploads/fed820f7-1f0f-4432-a50d-9cfd348d3392-random3.jpg",
         "createdAt": "2025-04-03T14:04:12.422Z",
-        "likes": 1,
-        "likedBy": [
-          3
-        ],
+        "likes": 0,
+        "likedBy": [],
         "comments": []
       }
     ]

@@ -25,7 +25,7 @@ interface Post {
   createdAt: string;
   likes: number;
   likedBy: number[];
-  comments: any[];
+  comments: string[];
 }
 
 export async function GET() {

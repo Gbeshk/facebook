@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import LeftSide from "@/app/components/leftside/LeftSide";
 import Post from "@/app/components/post/Post";
 import Slider from "@/app/components/Slider/Slider";

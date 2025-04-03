@@ -51,7 +51,7 @@ export async function POST(req: Request) {
           throw new Error('Invalid data format')
         }
       } catch (e) {
-        console.error('Corrupted data file, resetting...')
+        console.error(e)
         users = []
       }
     }
@@ -70,7 +70,6 @@ export async function POST(req: Request) {
       createdAt: new Date().toISOString()
     }
 
-    // Save user
     users.push(newUser)
     fs.writeFileSync(dataFilePath, JSON.stringify(users, null, 2))
 
