@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Image from "next/image";
 
-import { Loginschema } from "../LoginSchema/LoginSchema";
+import { Loginschema } from "../../schemas/LoginSchema/LoginSchema";
 import Footer from "../footer/Footer";
 
 function SignIn() {

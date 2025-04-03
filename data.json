@@ -32,9 +32,11 @@
         "userId": 1,
         "content": "fsafsafasf",
         "createdAt": "2025-04-01T16:14:20.977Z",
-        "likes": 8,
+        "likes": 9,
         "comments": [],
-        "likedBy": []
+        "likedBy": [
+          1
+        ]
       },
       {
         "id": 1743524414612,
@@ -239,6 +241,106 @@
         "createdAt": "2025-04-01T18:21:28.797Z",
         "likes": 0,
         "comments": []
+      },
+      {
+        "id": 1743625807668,
+        "userId": 3,
+        "content": "awffawf",
+        "createdAt": "2025-04-02T20:30:07.668Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743625984247,
+        "userId": 3,
+        "content": "dadda",
+        "createdAt": "2025-04-02T20:33:04.247Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743686922854,
+        "userId": 3,
+        "content": "",
+        "imageUrl": "/uploads/89954a7e-4c0d-4a47-a67e-be372689ff36-random3.jpg",
+        "createdAt": "2025-04-03T13:28:42.854Z",
+        "likes": 1,
+        "likedBy": [
+          3
+        ],
+        "comments": []
+      },
+      {
+        "id": 1743687165210,
+        "userId": 3,
+        "content": "fawfaw",
+        "createdAt": "2025-04-03T13:32:45.210Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743687171001,
+        "userId": 3,
+        "content": "dawfaw",
+        "createdAt": "2025-04-03T13:32:51.001Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743687353927,
+        "userId": 3,
+        "content": "fafwfafwafawfawfwf",
+        "createdAt": "2025-04-03T13:35:53.927Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743687366878,
+        "userId": 3,
+        "content": "fawfwafawfwafwa",
+        "imageUrl": "/uploads/56054c62-3074-4671-b5b1-e3bc45f2bf19-random2.jpg",
+        "createdAt": "2025-04-03T13:36:06.878Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743687639045,
+        "userId": 3,
+        "content": "fwafaw",
+        "createdAt": "2025-04-03T13:40:39.045Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": []
+      },
+      {
+        "id": 1743688607543,
+        "userId": 3,
+        "content": "dafawfa",
+        "imageUrl": "/uploads/aa043617-3ca9-4383-abd2-8b334e28865a-random3.jpg",
+        "createdAt": "2025-04-03T13:56:47.543Z",
+        "likes": 1,
+        "likedBy": [
+          3
+        ],
+        "comments": []
+      },
+      {
+        "id": 1743689052422,
+        "userId": 3,
+        "content": "afwfawfaw",
+        "imageUrl": "/uploads/fed820f7-1f0f-4432-a50d-9cfd348d3392-random3.jpg",
+        "createdAt": "2025-04-03T14:04:12.422Z",
+        "likes": 1,
+        "likedBy": [
+          3
+        ],
+        "comments": []
       }
     ]
   },
@@ -327,5 +429,40 @@
       }
     ],
     "createdAt": "2025-04-01T19:15:16.384Z"
+  },
+  {
+    "id": 9,
+    "firstName": "ba",
+    "lastName": "yaya",
+    "day": 2,
+    "month": 2,
+    "year": 2021,
+    "gender": "other",
+    "email": "bayaya@gmail.com",
+    "password": "Bayaya123",
+    "posts": [
+      {
+        "id": 1743538846596,
+        "userId": 9,
+        "content": "me var bayaya",
+        "createdAt": "2025-04-01T20:20:46.596Z",
+        "likes": 0,
+        "comments": []
+      }
+    ],
+    "createdAt": "2025-04-01T20:20:29.899Z"
+  },
+  {
+    "id": 10,
+    "firstName": "luka",
+    "lastName": "cnobiladze",
+    "day": 2,
+    "month": 1,
+    "year": 2022,
+    "gender": "male",
+    "email": "luka@gmil.com",
+    "password": "Luka12345",
+    "posts": [],
+    "createdAt": "2025-04-01T23:24:32.125Z"
   }
 ]

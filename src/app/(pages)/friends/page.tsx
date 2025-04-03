@@ -1,11 +1,9 @@
 "use client";
 import React, { useState } from "react";
 import data from "../../../../data.json";
-import { useRouter } from "next/navigation";
 import LeftSide from "@/app/components/leftside/LeftSide";
 
 function Friends() {
-  const router = useRouter();
   const [friendStatus, setFriendStatus] = useState<Record<number, boolean>>({});
 
   const toggleFriendStatus = (userId: number) => {
@@ -15,7 +13,7 @@ function Friends() {
     }));
   };
   console.log(data);
-  
+
   return (
     <>
       <div className="flex gap-2 bg-gray-100">
@@ -34,10 +32,7 @@ function Friends() {
                 >
                   <div className="p-3">
                     <div className="w-full bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
-                      <span className="text-2xl font-medium w-[200px] h-[200px]">
-                        {user.firstName.charAt(0)}
-                        {user.lastName.charAt(0)}
-                      </span>
+                      <span className="text-2xl font-medium w-[200px] h-[200px]"></span>
                     </div>
                     <div className="text-center">
                       <p className="font-medium">

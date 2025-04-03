@@ -1,91 +1,117 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { v4 as uuidv4 } from 'uuid';
 
 const dataFilePath = path.join(process.cwd(), 'data.json');
+const uploadDir = path.join(process.cwd(), 'public/uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
 
 interface User {
   id: number;
-  // ... your other user fields ...
-  posts: Post[];
+  firstName: string;
+  lastName: string;
+  profilePic?: string;
+  posts?: Post[];
 }
 
 interface Post {
   id: number;
   userId: number;
   content: string;
+  imageUrl?: string;
   createdAt: string;
   likes: number;
-  comments: [];
+  likedBy: number[];
+  comments: any[];
+}
+
+export async function GET() {
+  try {
+    if (!fs.existsSync(dataFilePath)) {
+      return NextResponse.json({ users: [] });
+    }
+
+    const rawData = fs.readFileSync(dataFilePath, 'utf-8');
+    const users: User[] = JSON.parse(rawData) || [];
+
+    return NextResponse.json({
+      users: users.map(user => ({
+        ...user,
+        posts: user.posts?.map(post => ({
+          ...post,
+          likedBy: post.likedBy || []
+        })) || []
+      }))
+    });
+  } catch (error) {
+    console.error('Error fetching posts:', error);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    );
+  }
 }
 
 export async function POST(req: Request) {
   try {
-    const { userId, content } = await req.json();
+    const formData = await req.formData();
+    const userId = formData.get('userId');
+    const content = formData.get('content');
+    const imageFile = formData.get('image') as File | null;
 
-    // Validate input
-    if (!userId || !content) {
+    if (!userId) {
       return NextResponse.json(
-        { success: false, message: 'Missing userId or content' },
+        { success: false, message: 'User ID is required' },
         { status: 400 }
       );
     }
 
-    // Read existing data
-    let users: User[] = [];
-    if (fs.existsSync(dataFilePath)) {
-      const fileData = fs.readFileSync(dataFilePath, 'utf-8');
-      users = JSON.parse(fileData);
-      if (!Array.isArray(users)) {
-        throw new Error('Invalid data format - expected array');
-      }
+    const rawData = fs.readFileSync(dataFilePath, 'utf-8');
+    const users: User[] = JSON.parse(rawData);
+
+    let imageUrl = '';
+    if (imageFile && imageFile.size > 0) {
+      const buffer = Buffer.from(await imageFile.arrayBuffer());
+      const fileName = `${uuidv4()}-${imageFile.name}`;
+      imageUrl = `/uploads/${fileName}`;
+      fs.writeFileSync(path.join(uploadDir, fileName), buffer);
     }
 
-    // Find user
-    const user = users.find(u => u.id === userId);
-    if (!user) {
-      return NextResponse.json(
-        { success: false, message: 'User not found' },
-        { status: 404 }
-      );
-    }
-
-    // Ensure posts array exists
-    if (!user.posts) {
-      user.posts = [];
-    }
-
-    // Create new post
     const newPost: Post = {
       id: Date.now(),
-      userId,
-      content,
+      userId: Number(userId),
+      content: content?.toString() || '',
+      imageUrl: imageUrl || undefined,
       createdAt: new Date().toISOString(),
       likes: 0,
+      likedBy: [],
       comments: []
     };
 
-    user.posts.push(newPost);
+    const updatedUsers = users.map(user => {
+      if (user.id === Number(userId)) {
+        return {
+          ...user,
+          posts: [...(user.posts || []), newPost]
+        };
+      }
+      return user;
+    });
 
-    // Save updated data
-    fs.writeFileSync(dataFilePath, JSON.stringify(users, null, 2));
+    fs.writeFileSync(dataFilePath, JSON.stringify(updatedUsers, null, 2));
 
-    return NextResponse.json(
-      { 
-        success: true,
-        message: 'Post created successfully',
-        post: newPost
-      },
-      { status: 201 }
-    );
+    return NextResponse.json({
+      success: true,
+      post: newPost
+    });
 
   } catch (error) {
-    console.error('Error saving post:', error);
+    console.error('Error creating post:', error);
     return NextResponse.json(
-      { 
-        success: false,
-        message: 'Internal server error',
-      },
+      { success: false, message: 'Internal server error' },
       { status: 500 }
     );
   }

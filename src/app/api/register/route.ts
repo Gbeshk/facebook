@@ -15,7 +15,7 @@ interface User {
   email: string
   password: string
   createdAt: string
-  posts: [] // Empty array for posts
+  posts: []
 }
 
 const headers = {
@@ -32,7 +32,6 @@ export async function POST(req: Request) {
   try {
     const userData = await req.json()
     
-    // Validate required fields
     const requiredFields = ['firstName', 'lastName', 'day', 'month', 'year', 'gender', 'email', 'password']
     const missingFields = requiredFields.filter(field => !userData[field])
     
@@ -43,7 +42,6 @@ export async function POST(req: Request) {
       )
     }
 
-    // Read or initialize data file
     let users: User[] = []
     if (fs.existsSync(dataFilePath)) {
       const fileData = fs.readFileSync(dataFilePath, 'utf-8')
@@ -58,7 +56,6 @@ export async function POST(req: Request) {
       }
     }
 
-    // Check for duplicate email
     if (users.some(user => user.email === userData.email)) {
       return NextResponse.json(
         { message: 'Email already registered' },
@@ -66,11 +63,10 @@ export async function POST(req: Request) {
       )
     }
 
-    // Create new user with empty posts array
     const newUser: User = {
       id: users.length > 0 ? Math.max(...users.map(u => u.id)) + 1 : 1,
       ...userData,
-      posts: [], // Initialize empty posts array
+      posts: [], 
       createdAt: new Date().toISOString()
     }
 

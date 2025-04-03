@@ -11,7 +11,8 @@ function Home() {
           <LeftSide />
           <div className="flex flex-col w-full">
             <Post />
-            <Slider /> <AllPosts />
+            <Slider />
+            <AllPosts />
           </div>
         </div>
       </div>
