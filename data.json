@@ -1,479 +1,502 @@
 [
   {
     "id": 1,
-    "firstName": "fawf",
-    "lastName": "wfwa",
-    "day": 2,
-    "month": 1,
-    "year": 2022,
-    "gender": "female",
-    "email": "wgfaegw@wfawf",
-    "password": "Feggeaf13",
-    "createdAt": "2025-04-01T12:59:59.466Z",
-    "posts": [
-      {
-        "id": 1743524012482,
-        "userId": 1,
-        "content": "dwD",
-        "createdAt": "2025-04-01T16:13:32.482Z",
-        "likes": 82,
-        "comments": [],
-        "likedBy": [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
-      {
-        "id": 1743524060977,
-        "userId": 1,
-        "content": "fsafsafasf",
-        "createdAt": "2025-04-01T16:14:20.977Z",
-        "likes": 9,
-        "comments": [],
-        "likedBy": [
-          1
-        ]
-      },
-      {
-        "id": 1743524414612,
-        "userId": 1,
-        "content": "wfaf",
-        "createdAt": "2025-04-01T16:20:14.612Z",
-        "likes": 6,
-        "comments": [],
-        "likedBy": []
-      },
-      {
-        "id": 1743524414797,
-        "userId": 1,
-        "content": "wfaf",
-        "createdAt": "2025-04-01T16:20:14.797Z",
-        "likes": 1,
-        "comments": []
-      }
-    ]
-  },
-  {
-    "id": 2,
-    "firstName": "dwadaw",
-    "lastName": "fdwafwa",
-    "day": 1,
-    "month": 2,
-    "year": 2021,
-    "gender": "female",
-    "email": "wfawfwf@fwa",
-    "password": "GIorgi123",
-    "createdAt": "2025-04-01T13:01:50.637Z"
-  },
-  {
-    "id": 3,
     "firstName": "giorgi",
     "lastName": "beshkenadze",
     "day": 1,
     "month": 2,
-    "year": 2023,
+    "year": 2021,
     "gender": "other",
-    "email": "giorgi@gmail.com",
+    "email": "giorgibeshkenadze4@gmail.com",
     "password": "Giorgi123",
-    "createdAt": "2025-04-01T13:16:58.361Z",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
     "posts": [
       {
-        "id": 1743525228890,
-        "userId": 3,
-        "content": "sdasd",
-        "createdAt": "2025-04-01T16:33:48.890Z",
+        "id": 1743709141533,
+        "userId": 1,
+        "content": "fwaf",
+        "createdAt": "2025-04-03T19:39:01.533Z",
         "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743525233732,
-        "userId": 3,
-        "content": "ddda",
-        "createdAt": "2025-04-01T16:33:53.732Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743526032503,
-        "userId": 3,
-        "content": "wfawf",
-        "createdAt": "2025-04-01T16:47:12.503Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743526035985,
-        "userId": 3,
-        "content": "dd",
-        "createdAt": "2025-04-01T16:47:15.985Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743528829555,
-        "userId": 3,
-        "content": "fawfawfawfa",
-        "createdAt": "2025-04-01T17:33:49.555Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743528829557,
-        "userId": 3,
-        "content": "fawfawfawfa",
-        "createdAt": "2025-04-01T17:33:49.557Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743530812351,
-        "userId": 3,
-        "content": "mixeil saakashvili",
-        "createdAt": "2025-04-01T18:06:52.351Z",
-        "likes": 0,
+        "likedBy": [],
         "comments": [],
-        "likedBy": []
+        "savedBy": [
+          3
+        ]
       },
       {
-        "id": 1743531120344,
-        "userId": 3,
-        "content": "fawf",
-        "createdAt": "2025-04-01T18:12:00.344Z",
-        "likes": 0,
-        "comments": []
+        "id": 1743709145014,
+        "userId": 1,
+        "content": "fwfwfwf",
+        "createdAt": "2025-04-03T19:39:05.014Z",
+        "likes": 1,
+        "likedBy": [
+          3
+        ],
+        "comments": [],
+        "savedBy": [
+          3
+        ]
       },
       {
-        "id": 1743531131167,
-        "userId": 3,
-        "content": "ddd",
-        "createdAt": "2025-04-01T18:12:11.167Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531146311,
-        "userId": 3,
-        "content": "dawdwa",
-        "createdAt": "2025-04-01T18:12:26.311Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531168347,
-        "userId": 3,
-        "content": "www",
-        "createdAt": "2025-04-01T18:12:48.347Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531189809,
-        "userId": 3,
-        "content": "wfaw",
-        "createdAt": "2025-04-01T18:13:09.809Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531365120,
-        "userId": 3,
-        "content": "fasfa",
-        "createdAt": "2025-04-01T18:16:05.120Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531464064,
-        "userId": 3,
-        "content": "wafawf",
-        "createdAt": "2025-04-01T18:17:44.064Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531470489,
-        "userId": 3,
-        "content": "124211252",
-        "createdAt": "2025-04-01T18:17:50.489Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531534628,
-        "userId": 3,
-        "content": "fawfaf",
-        "createdAt": "2025-04-01T18:18:54.628Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531537775,
-        "userId": 3,
-        "content": "wafwa",
-        "createdAt": "2025-04-01T18:18:57.775Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531546197,
-        "userId": 3,
-        "content": "fawfa",
-        "createdAt": "2025-04-01T18:19:06.197Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531590259,
-        "userId": 3,
-        "content": "wfawfwf",
-        "createdAt": "2025-04-01T18:19:50.259Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743531688797,
-        "userId": 3,
-        "content": "wafwafwaf",
-        "createdAt": "2025-04-01T18:21:28.797Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743625807668,
-        "userId": 3,
-        "content": "awffawf",
-        "createdAt": "2025-04-02T20:30:07.668Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743625984247,
-        "userId": 3,
-        "content": "dadda",
-        "createdAt": "2025-04-02T20:33:04.247Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743686922854,
-        "userId": 3,
+        "id": 1743710473441,
+        "userId": 1,
         "content": "",
-        "imageUrl": "/uploads/89954a7e-4c0d-4a47-a67e-be372689ff36-random3.jpg",
-        "createdAt": "2025-04-03T13:28:42.854Z",
-        "likes": 1,
+        "imageUrl": "/uploads/c5098f1d-7b9b-40ba-ba02-b016170e58c4-random3.jpg",
+        "createdAt": "2025-04-03T20:01:13.441Z",
+        "likes": 2,
         "likedBy": [
+          1,
           3
         ],
-        "comments": []
+        "comments": [],
+        "savedBy": [
+          3
+        ]
       },
       {
-        "id": 1743687165210,
-        "userId": 3,
-        "content": "fawfaw",
-        "createdAt": "2025-04-03T13:32:45.210Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
+        "id": 1743710674681,
+        "userId": 1,
+        "content": "fawfa",
+        "createdAt": "2025-04-03T20:04:34.681Z",
+        "likes": 5,
+        "likedBy": [
+          1,
+          5
+        ],
+        "comments": [],
+        "savedBy": [
+          3,
+          5
+        ]
       },
       {
-        "id": 1743687171001,
-        "userId": 3,
-        "content": "dawfaw",
-        "createdAt": "2025-04-03T13:32:51.001Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743687353927,
-        "userId": 3,
-        "content": "fafwfafwafawfawfwf",
-        "createdAt": "2025-04-03T13:35:53.927Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743687366878,
-        "userId": 3,
-        "content": "fawfwafawfwafwa",
-        "imageUrl": "/uploads/56054c62-3074-4671-b5b1-e3bc45f2bf19-random2.jpg",
-        "createdAt": "2025-04-03T13:36:06.878Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743687639045,
-        "userId": 3,
-        "content": "fwafaw",
-        "createdAt": "2025-04-03T13:40:39.045Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
-      },
-      {
-        "id": 1743688607543,
-        "userId": 3,
-        "content": "dafawfa",
-        "imageUrl": "/uploads/aa043617-3ca9-4383-abd2-8b334e28865a-random3.jpg",
-        "createdAt": "2025-04-03T13:56:47.543Z",
+        "id": 1743711474173,
+        "userId": 1,
+        "content": "hvkvb",
+        "createdAt": "2025-04-03T20:17:54.173Z",
         "likes": 1,
         "likedBy": [
-          3
+          1
         ],
-        "comments": []
+        "comments": [],
+        "savedBy": [
+          3
+        ]
       },
       {
-        "id": 1743689052422,
-        "userId": 3,
-        "content": "afwfawfaw",
-        "imageUrl": "/uploads/fed820f7-1f0f-4432-a50d-9cfd348d3392-random3.jpg",
-        "createdAt": "2025-04-03T14:04:12.422Z",
-        "likes": 0,
-        "likedBy": [],
-        "comments": []
+        "id": 1743711486877,
+        "userId": 1,
+        "content": "",
+        "imageUrl": "/uploads/856ed309-831c-43e3-9c36-70ad8a05a2d2-random1.jpg",
+        "createdAt": "2025-04-03T20:18:06.877Z",
+        "likes": 1,
+        "likedBy": [
+          2
+        ],
+        "comments": [],
+        "savedBy": [
+          3
+        ]
       }
+    ],
+    "createdAt": "2025-04-03T19:38:51.983Z",
+    "friendRequestsReceived": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      10,
+      12
+    ]
+  },
+  {
+    "id": 2,
+    "firstName": "zazusha",
+    "lastName": "managadze",
+    "day": 2,
+    "month": 4,
+    "year": 2021,
+    "gender": "male",
+    "email": "zazusha@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "/uploads/aa9883d0-9015-43c9-912b-5d274eb619b3-fawfawf.jpg",
+    "posts": [
+      {
+        "id": 1743774776302,
+        "userId": 2,
+        "content": "gcuyfy",
+        "createdAt": "2025-04-04T13:52:56.302Z",
+        "likes": 2,
+        "likedBy": [
+          3,
+          5
+        ],
+        "comments": [],
+        "savedBy": [
+          3,
+          2
+        ]
+      },
+      {
+        "id": 1743785216692,
+        "userId": 2,
+        "content": "fwafwaf",
+        "createdAt": "2025-04-04T16:46:56.692Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          2
+        ]
+      },
+      {
+        "id": 1743785230072,
+        "userId": 2,
+        "content": "",
+        "imageUrl": "/uploads/61ae0c9c-bf8c-4d05-a13e-2782668e6b61-random3.jpg",
+        "createdAt": "2025-04-04T16:47:10.072Z",
+        "likes": 1,
+        "likedBy": [
+          5
+        ],
+        "comments": [],
+        "savedBy": [
+          2
+        ]
+      },
+      {
+        "id": 1743786648632,
+        "userId": 2,
+        "content": "fawf",
+        "createdAt": "2025-04-04T17:10:48.632Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": []
+      },
+      {
+        "id": 1743787018762,
+        "userId": 2,
+        "content": "",
+        "imageUrl": "/uploads/a6046b52-7537-45b5-88bb-e30a9b56a93a-random2.jpg",
+        "createdAt": "2025-04-04T17:16:58.762Z",
+        "likes": 1,
+        "likedBy": [
+          2
+        ],
+        "comments": [],
+        "savedBy": [
+          6
+        ]
+      },
+      {
+        "id": 1743787649717,
+        "userId": 2,
+        "content": "fawfawfa",
+        "imageUrl": "/uploads/363fa94e-d940-48b0-b3b0-5a41769029ff-fasaw.jpg",
+        "createdAt": "2025-04-04T17:27:29.717Z",
+        "likes": 1,
+        "likedBy": [
+          2
+        ],
+        "comments": [],
+        "savedBy": [
+          5,
+          6,
+          9,
+          2
+        ]
+      },
+      {
+        "id": 1743788692182,
+        "userId": 2,
+        "content": "",
+        "imageUrl": "/uploads/7c25854f-4e8e-429c-b3b0-c4e7f37b86c8-fasaw.jpg",
+        "createdAt": "2025-04-04T17:44:52.182Z",
+        "likes": 2,
+        "likedBy": [
+          6,
+          2
+        ],
+        "comments": [],
+        "savedBy": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "id": 1743890494454,
+        "userId": 2,
+        "content": "gaegfaf",
+        "createdAt": "2025-04-05T22:01:34.454Z",
+        "likes": 1,
+        "likedBy": [
+          11
+        ],
+        "comments": [],
+        "savedBy": [
+          11
+        ]
+      },
+      {
+        "id": 1743890501670,
+        "userId": 2,
+        "content": "",
+        "imageUrl": "/uploads/dfbb9630-7c14-41bf-ac12-b2113bccac16-random1.jpg",
+        "createdAt": "2025-04-05T22:01:41.670Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          11
+        ]
+      }
+    ],
+    "createdAt": "2025-04-04T13:34:04.173Z",
+    "friendRequestsReceived": [
+      10
+    ],
+    "friendRequestsSent": [
+      1,
+      1,
+      4,
+      1,
+      1,
+      1,
+      3
+    ]
+  },
+  {
+    "id": 3,
+    "firstName": "saakshvili",
+    "lastName": "mixeili",
+    "day": 4,
+    "month": 3,
+    "year": 2021,
+    "gender": "male",
+    "email": "misha@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
+    "posts": [
+      {
+        "id": 1743778229173,
+        "userId": 3,
+        "content": "fawfwafawfawf",
+        "createdAt": "2025-04-04T14:50:29.173Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          3,
+          2
+        ]
+      }
+    ],
+    "createdAt": "2025-04-04T14:19:34.150Z",
+    "friendRequestsReceived": [
+      2,
+      11,
+      12
     ]
   },
   {
     "id": 4,
-    "firstName": "ffaw",
-    "lastName": "wafaw",
-    "day": 1,
+    "firstName": "fwaf",
+    "lastName": "wafwa",
+    "day": 2,
     "month": 1,
-    "year": 2022,
+    "year": 2023,
     "gender": "female",
-    "email": "fwafwf@gaeffae",
-    "password": "wfwF2324",
-    "createdAt": "2025-04-01T13:20:56.602Z"
+    "email": "wffa@faf.com",
+    "password": "fwfwfwfwD2",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
+    "posts": [],
+    "createdAt": "2025-04-04T16:21:05.223Z",
+    "friendRequestsReceived": [
+      2,
+      12
+    ]
   },
   {
     "id": 5,
-    "firstName": "dato",
-    "lastName": "gociridze",
-    "day": 2,
-    "month": 2,
-    "year": 2021,
-    "gender": "female",
-    "email": "dato@gmail.com",
-    "password": "Dato1234",
-    "createdAt": "2025-04-01T13:45:02.010Z"
-  },
-  {
-    "id": 6,
-    "firstName": "luka",
-    "lastName": "wiklauri",
-    "day": 2,
-    "month": 2,
-    "year": 2022,
-    "gender": "male",
-    "email": "fafw#aefaa@feaerfw",
-    "password": "Fefef123",
-    "createdAt": "2025-04-01T15:36:17.450Z"
-  },
-  {
-    "id": 7,
-    "firstName": "fwaf",
-    "lastName": "wafwf",
+    "firstName": "mariam",
+    "lastName": "xvareshia",
     "day": 2,
     "month": 1,
     "year": 2023,
     "gender": "female",
-    "email": "wafwfw@gwafa",
-    "password": "WfafffRF2412",
-    "createdAt": "2025-04-01T15:40:25.429Z"
+    "email": "mari@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "/uploads/e2d6eb50-d00c-4b36-90b2-4a5d39cdb308-WIN_20250323_23_13_57_Pro.jpg",
+    "posts": [
+      {
+        "id": 1743798453569,
+        "userId": 5,
+        "content": "#nbavote zaza pachulia",
+        "createdAt": "2025-04-04T20:27:33.569Z",
+        "likes": 3,
+        "likedBy": [
+          5,
+          6,
+          10
+        ],
+        "comments": [],
+        "savedBy": [
+          5,
+          6,
+          7,
+          9,
+          10
+        ]
+      }
+    ],
+    "createdAt": "2025-04-04T20:25:17.992Z",
+    "friendRequestsReceived": [
+      10
+    ]
   },
   {
     "id": 8,
-    "firstName": "luka",
-    "lastName": "lamchaba",
-    "day": 2,
-    "month": 2,
-    "year": 2020,
-    "gender": "female",
-    "email": "luka@gmail.com",
-    "password": "Luka1234",
-    "posts": [
-      {
-        "id": 1743534954940,
-        "userId": 8,
-        "content": "lukas uyvar gotebi",
-        "createdAt": "2025-04-01T19:15:54.940Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743535483106,
-        "userId": 8,
-        "content": "fawfwaf",
-        "createdAt": "2025-04-01T19:24:43.106Z",
-        "likes": 0,
-        "comments": []
-      },
-      {
-        "id": 1743535483108,
-        "userId": 8,
-        "content": "fawfwaf",
-        "createdAt": "2025-04-01T19:24:43.108Z",
-        "likes": 0,
-        "comments": []
-      }
-    ],
-    "createdAt": "2025-04-01T19:15:16.384Z"
+    "firstName": "fwfw",
+    "lastName": "qgeaf",
+    "day": 1,
+    "month": 1,
+    "year": 2022,
+    "gender": "other",
+    "email": "ggggg@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
+    "posts": [],
+    "createdAt": "2025-04-05T17:56:37.442Z",
+    "friendRequestsSent": [],
+    "friendRequestsReceived": []
   },
   {
     "id": 9,
-    "firstName": "ba",
-    "lastName": "yaya",
-    "day": 2,
-    "month": 2,
-    "year": 2021,
-    "gender": "other",
-    "email": "bayaya@gmail.com",
-    "password": "Bayaya123",
-    "posts": [
-      {
-        "id": 1743538846596,
-        "userId": 9,
-        "content": "me var bayaya",
-        "createdAt": "2025-04-01T20:20:46.596Z",
-        "likes": 0,
-        "comments": []
-      }
+    "firstName": "awfa",
+    "lastName": "wafaw",
+    "day": 1,
+    "month": 1,
+    "year": 2023,
+    "gender": "female",
+    "email": "g@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
+    "posts": [],
+    "createdAt": "2025-04-05T18:19:01.100Z",
+    "friendRequestsSent": [
+      7
     ],
-    "createdAt": "2025-04-01T20:20:29.899Z"
+    "friendRequestsReceived": []
   },
   {
     "id": 10,
-    "firstName": "luka",
-    "lastName": "cnobiladze",
-    "day": 2,
+    "firstName": "afawfw",
+    "lastName": "wfawfwa",
+    "day": 1,
     "month": 1,
     "year": 2022,
     "gender": "male",
-    "email": "luka@gmil.com",
-    "password": "Luka12345",
+    "email": "t@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "/uploads/5b08c585-74d5-4a5f-99b0-b8de012e7f15-random1.jpg",
     "posts": [],
-    "createdAt": "2025-04-01T23:24:32.125Z"
+    "createdAt": "2025-04-05T21:17:18.705Z",
+    "friendRequestsSent": [
+      1,
+      2,
+      5
+    ],
+    "friendRequestsReceived": []
   },
   {
     "id": 11,
-    "firstName": "fwafaw",
-    "lastName": "fawfwa",
-    "day": 2,
-    "month": 4,
+    "firstName": "dawfa",
+    "lastName": "wafaw",
+    "day": 1,
+    "month": 1,
     "year": 2023,
-    "gender": "female",
-    "email": "wfwfw@fawf",
-    "password": "fwafwfE2",
-    "posts": [],
-    "createdAt": "2025-04-03T15:04:55.123Z"
+    "gender": "other",
+    "email": "ggg@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
+    "posts": [
+      {
+        "id": 1743890911742,
+        "userId": 11,
+        "content": "fwafwaffa",
+        "imageUrl": "/uploads/596c2742-7518-48ce-a864-9d50f0314d23-download.jpg",
+        "createdAt": "2025-04-05T22:08:31.742Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": []
+      }
+    ],
+    "createdAt": "2025-04-05T22:07:53.226Z",
+    "friendRequestsSent": [
+      3
+    ],
+    "friendRequestsReceived": []
+  },
+  {
+    "id": 12,
+    "firstName": "giorgi",
+    "lastName": "wafwa",
+    "day": 1,
+    "month": 1,
+    "year": 2022,
+    "gender": "male",
+    "email": "giorgi@gmail.com",
+    "password": "Giorgi123",
+    "profilePicture": "/uploads/0d601a47-9560-4264-9314-049936e29204-fasaw.jpg",
+    "posts": [
+      {
+        "id": 1743892267895,
+        "userId": 12,
+        "content": "awfawf",
+        "createdAt": "2025-04-05T22:31:07.895Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          12
+        ]
+      },
+      {
+        "id": 1743892272688,
+        "userId": 12,
+        "content": "",
+        "imageUrl": "/uploads/ddacc88c-2f14-46b6-9a34-834525242def-download.jpg",
+        "createdAt": "2025-04-05T22:31:12.688Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          12
+        ]
+      },
+      {
+        "id": 1743892276221,
+        "userId": 12,
+        "content": "fawfa",
+        "createdAt": "2025-04-05T22:31:16.221Z",
+        "likes": 0,
+        "likedBy": [],
+        "comments": [],
+        "savedBy": [
+          12
+        ]
+      }
+    ],
+    "createdAt": "2025-04-05T22:28:08.650Z",
+    "friendRequestsSent": [
+      1,
+      3,
+      4
+    ],
+    "friendRequestsReceived": []
   }
 ]

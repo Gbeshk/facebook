@@ -15,6 +15,7 @@ interface User {
   lastName: string;
   profilePic?: string;
   posts?: Post[];
+  
 }
 
 interface Post {
@@ -26,8 +27,9 @@ interface Post {
   likes: number;
   likedBy: number[];
   comments: string[];
-}
+  savedBy: number[]; 
 
+}
 export async function GET() {
   try {
     if (!fs.existsSync(dataFilePath)) {
@@ -42,7 +44,8 @@ export async function GET() {
         ...user,
         posts: user.posts?.map(post => ({
           ...post,
-          likedBy: post.likedBy || []
+          likedBy: post.likedBy || [],
+          savedBy: post.savedBy || [] 
         })) || []
       }))
     });
@@ -88,7 +91,8 @@ export async function POST(req: Request) {
       createdAt: new Date().toISOString(),
       likes: 0,
       likedBy: [],
-      comments: []
+      comments: [],
+      savedBy: []
     };
 
     const updatedUsers = users.map(user => {

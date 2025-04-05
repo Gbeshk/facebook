@@ -1,8 +1,8 @@
 import React from "react";
-import LeftSide from "@/app/components/leftside/LeftSide";
-import Post from "@/app/components/post/Post";
-import Slider from "@/app/components/Slider/Slider";
-import AllPosts from "@/app/components/allposts/AllPosts";
+import LeftSide from "@/app/components/__molecules/leftside/LeftSide";
+import Post from "@/app/components/__organisms/post/Post";
+import AllPosts from "@/app/components/__molecules/allposts/AllPosts";
+import Slider from "@/app/components/__molecules/Slider/Slider";
 function Home() {
   return (
     <>
