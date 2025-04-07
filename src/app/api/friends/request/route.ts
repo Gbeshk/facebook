@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
-import fs from 'fs/promises';
-import path from 'path';
+import fs from "fs/promises";
+import path from "path";
 
-const dataPath = path.join(process.cwd(), 'data.json');
+const dataPath = path.join(process.cwd(), "data.json");
 
 interface User {
   id: number;
@@ -17,13 +17,14 @@ interface User {
   email: string;
   password: string;
   profilePicture: string;
-  posts: unknown[]; 
+  posts: unknown[];
   createdAt: string;
+  friends: number[]; 
 }
 
 export async function POST(req: NextRequest) {
   try {
-    const rawData = await fs.readFile(dataPath, 'utf-8');
+    const rawData = await fs.readFile(dataPath, "utf-8");
     const data: User[] = JSON.parse(rawData);
 
     if (!Array.isArray(data)) {
@@ -31,19 +32,22 @@ export async function POST(req: NextRequest) {
     }
 
     const { senderId, receiverId, action } = await req.json();
-    
+
     const senderIdNum = Number(senderId);
     const receiverIdNum = Number(receiverId);
 
-    const sender = data.find(u => u.id === senderIdNum);
-    const receiver = data.find(u => u.id === receiverIdNum);
+    const sender = data.find((u) => u.id === senderIdNum);
+    const receiver = data.find((u) => u.id === receiverIdNum);
 
     if (!sender) {
       return NextResponse.json({ error: "Sender not found" }, { status: 404 });
     }
 
     if (!receiver) {
-      return NextResponse.json({ error: "Receiver not found" }, { status: 404 });
+      return NextResponse.json(
+        { error: "Receiver not found" },
+        { status: 404 }
+      );
     }
 
     sender.friendRequestsSent = sender.friendRequestsSent ?? [];
@@ -52,34 +56,42 @@ export async function POST(req: NextRequest) {
     switch (action) {
       case "send":
         if (!sender.friendRequestsSent.includes(receiverIdNum)) {
-          sender.friendRequestsSent = [...sender.friendRequestsSent, receiverIdNum];
+          sender.friendRequestsSent = [
+            ...sender.friendRequestsSent,
+            receiverIdNum,
+          ];
         }
         if (!receiver.friendRequestsReceived.includes(senderIdNum)) {
-          receiver.friendRequestsReceived = [...receiver.friendRequestsReceived, senderIdNum];
+          receiver.friendRequestsReceived = [
+            ...receiver.friendRequestsReceived,
+            senderIdNum,
+          ];
         }
         break;
-        
+
       case "cancel":
-        sender.friendRequestsSent = sender.friendRequestsSent
-          .filter((id: number) => id !== receiverIdNum);
-        receiver.friendRequestsReceived = receiver.friendRequestsReceived
-          .filter((id: number) => id !== senderIdNum);
+        sender.friendRequestsSent = sender.friendRequestsSent.filter(
+          (id: number) => id !== receiverIdNum
+        );
+        receiver.friendRequestsReceived =
+          receiver.friendRequestsReceived.filter(
+            (id: number) => id !== senderIdNum
+          );
         break;
-        
+
       default:
         return NextResponse.json({ error: "Invalid action" }, { status: 400 });
     }
 
     await fs.writeFile(dataPath, JSON.stringify(data, null, 2));
-    
-    return NextResponse.json({ 
-      users: data.map(user => ({
+
+    return NextResponse.json({
+      users: data.map((user) => ({
         ...user,
         friendRequestsSent: user.friendRequestsSent ?? [],
         friendRequestsReceived: user.friendRequestsReceived ?? [],
-      }))
+      })),
     });
-    
   } catch (error) {
     console.error("API Error:", error);
     return NextResponse.json(

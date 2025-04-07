@@ -4,6 +4,7 @@ import Post from "@/app/components/__organisms/post/Post";
 import AllPosts from "@/app/components/__molecules/allposts/AllPosts";
 import Slider from "@/app/components/__molecules/Slider/Slider";
 function Home() {
+  
   return (
     <>
       <div className="w-full min-h-[100vh] bg-gray-100">

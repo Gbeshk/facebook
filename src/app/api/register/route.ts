@@ -19,8 +19,11 @@ interface User {
   profilePicture: string;
   createdAt: string;
   posts: [];
+  friends: number[];
+
   friendRequestsSent: number[];
   friendRequestsReceived: number[];
+  coverPhoto?: string;
 }
 
 const headers = {
@@ -28,7 +31,8 @@ const headers = {
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };
-
+const DEFAULT_COVER_PHOTO =
+  "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDQwIiBoZWlnaHQ9IjMyMCI+PHJlY3Qgd2lkdGg9IjE0NDAiIGhlaWdodD0iMzIwIiBmaWxsPSIjZjBmMGYwIi8+PC9zdmc+";
 const DEFAULT_PROFILE_PICTURES: Record<Gender, string> = {
   male: "https://scontent.ftbs6-2.fna.fbcdn.net/v/t1.30497-1/453178253_471506465671661_2781666950760530985_n.png?stp=dst-png_s200x200&_nc_cat=1&ccb=1-7&_nc_sid=136b72&_nc_ohc=1BwdynYvBPkQ7kNvwH6azd4&_nc_oc=AdnG5RTc8K33z1to7vzwZncn24z6kLsTmCJpGOIIYU4NizzQXNP-elmT0P-yqq8t3-g&_nc_zt=24&_nc_ht=scontent.ftbs6-2.fna&oh=00_AYHONsCXlykPDU6l59JnEkyhVmF9G2V6H35yqpAj_LROCw&oe=68164A3A",
   female:
@@ -111,9 +115,12 @@ export async function POST(req: Request) {
       password: userData.password,
       profilePicture: defaultPicture,
       posts: [],
+      friends: [],
+
       createdAt: new Date().toISOString(),
-      friendRequestsSent: [], 
-      friendRequestsReceived: []  
+      friendRequestsSent: [],
+      friendRequestsReceived: [],
+      coverPhoto: DEFAULT_COVER_PHOTO,
     };
 
     users.push(newUser);

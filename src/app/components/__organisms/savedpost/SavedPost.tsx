@@ -7,6 +7,7 @@ import ShareButton from "@/app/components/__atoms/sharebutton/ShareButton";
 import SaveButton from "@/app/components/__atoms/savedbutton/SaveButton";
 import LeftSide from "@/app/components/__molecules/leftside/LeftSide";
 import { User } from "../../../types/Post";
+import { usePathname } from "next/navigation";
 
 interface SavedPostsViewProps {
   loading: boolean;
@@ -25,6 +26,9 @@ export default function SavedPost({
   onLike,
   onSave,
 }: SavedPostsViewProps) {
+  const pathname = usePathname();
+  const isProfilePage = pathname.includes("/profile");
+  
   const savedPosts = users
     .flatMap(
       (user) =>
@@ -60,8 +64,8 @@ export default function SavedPost({
   if (savedPosts.length === 0) {
     return (
       <div className="flex">
-        <LeftSide />
-        <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
+      {!isProfilePage && <LeftSide />}
+      <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
           No saved posts found.
         </p>
       </div>
@@ -70,7 +74,7 @@ export default function SavedPost({
 
   return (
     <div className="flex">
-      <LeftSide />
+      {!isProfilePage && <LeftSide />}
       <div className="max-w-2xl w-full mt-[20px] space-y-4">
         <h1 className="text-[30px] font-bold">Saved Posts</h1>
         {savedPosts.map((post) => (

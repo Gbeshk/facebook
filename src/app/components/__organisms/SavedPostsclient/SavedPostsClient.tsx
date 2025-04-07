@@ -3,6 +3,7 @@ import SavedPost from "../savedpost/SavedPost";
 import LeftSide from "@/app/components/__molecules/leftside/LeftSide";
 import { User } from "../../../types/Post";
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 function SavedPostsClient() {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,9 @@ function SavedPostsClient() {
       }
     }
   }, []);
-
+  const pathname = usePathname();
+  const isProfilePage = pathname.includes("/profile");
+  
   useEffect(() => {
     const fetchPosts = async () => {
       if (!currentUserId) return;
@@ -155,8 +158,8 @@ function SavedPostsClient() {
   if (savedPosts.length === 0) {
     return (
       <div className="flex">
-        <LeftSide />
-        <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
+      {!isProfilePage && <LeftSide />}
+      <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
           No saved posts found.
         </p>
       </div>

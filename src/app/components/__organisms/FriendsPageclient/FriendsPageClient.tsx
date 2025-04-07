@@ -6,6 +6,7 @@ export interface User {
   firstName: string;
   lastName: string;
   profilePicture: string;
+  friends: number[]; 
   friendRequestsSent?: number[];
   friendRequestsReceived?: number[];
 }
