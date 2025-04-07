@@ -8,6 +8,7 @@ import SaveButton from "@/app/components/__atoms/savedbutton/SaveButton";
 import LeftSide from "@/app/components/__molecules/leftside/LeftSide";
 import { User } from "../../../types/Post";
 import { usePathname } from "next/navigation";
+import RightSide from "../../__molecules/rightside/RightSide";
 
 interface SavedPostsViewProps {
   loading: boolean;
@@ -28,7 +29,7 @@ export default function SavedPost({
 }: SavedPostsViewProps) {
   const pathname = usePathname();
   const isProfilePage = pathname.includes("/profile");
-  
+
   const savedPosts = users
     .flatMap(
       (user) =>
@@ -64,8 +65,8 @@ export default function SavedPost({
   if (savedPosts.length === 0) {
     return (
       <div className="flex">
-      {!isProfilePage && <LeftSide />}
-      <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
+        {!isProfilePage && <LeftSide />}
+        <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
           No saved posts found.
         </p>
       </div>
@@ -73,7 +74,7 @@ export default function SavedPost({
   }
 
   return (
-    <div className="flex">
+    <div className="flex justify-between">
       {!isProfilePage && <LeftSide />}
       <div className="max-w-2xl w-full mt-[20px] space-y-4">
         <h1 className="text-[30px] font-bold">Saved Posts</h1>
@@ -92,6 +93,11 @@ export default function SavedPost({
           </div>
         ))}
       </div>
-    </div>
+        {!isProfilePage && (
+          <div className="max-w-[400px] w-full mt-2">
+            <RightSide />
+          </div>
+        )}
+      </div>
   );
 }

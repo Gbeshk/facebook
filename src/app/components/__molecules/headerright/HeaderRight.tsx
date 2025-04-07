@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 export interface Post {
@@ -150,7 +151,7 @@ function HeaderRight({
                       className="flex items-center justify-between p-2 hover:bg-gray-50 rounded"
                     >
                       <div className="flex items-center gap-3">
-                        <img
+                        <Image
                           src={user.profilePicture}
                           alt={`${user.firstName}'s profile`}
                           width={40}

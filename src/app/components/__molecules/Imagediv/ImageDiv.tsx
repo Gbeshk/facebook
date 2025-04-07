@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 interface User {
   id: number;
@@ -13,7 +14,7 @@ interface ImageDivProps {
 function ImageDiv({ user }: ImageDivProps) {
   return (
     <div className="w-full bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
-      <img
+      <Image
         width={100}
         height={100}
         src={user.profilePicture}

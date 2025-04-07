@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 interface ProfilePicProps {
   user: {
@@ -13,7 +14,7 @@ function ProfilePic({ user, getUserInitials }: ProfilePicProps) {
     <>
       <div className="w-[40px] h-[40px] rounded-full overflow-hidden bg-gray-100">
         {user?.profilePicture ? (
-          <img
+          <Image
           width={100}
           height={100}
             src={user.profilePicture}
