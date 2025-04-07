@@ -42,7 +42,7 @@ function ProfileProfilePic({
       {currentUser.profilePicture ? (
         <>
           <div className=" w-[174px] h-[174px] rounded-full border-2 border-white overflow-hidden absolute top-[-60px] left-[20px]">
-            <Image
+            <img
               alt="Profile picture"
               width={174}
               height={174}

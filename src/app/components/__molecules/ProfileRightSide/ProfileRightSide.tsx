@@ -80,7 +80,7 @@ function ProfileRightSide({chosen, userPosts, currentUser, handleSave,handleLike
       
                           <div className="p-4 flex items-center">
                             <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-gray-100">
-                              <Image
+                              <img
                                 width={100}
                                 height={100}
                                 src={currentUser.profilePicture}

@@ -151,7 +151,7 @@ function HeaderRight({
                       className="flex items-center justify-between p-2 hover:bg-gray-50 rounded"
                     >
                       <div className="flex items-center gap-3">
-                        <Image
+                        <img
                           src={user.profilePicture}
                           alt={`${user.firstName}'s profile`}
                           width={40}

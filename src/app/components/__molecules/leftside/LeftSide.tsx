@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React from "react";
 
 function LeftSide() {
@@ -16,7 +15,7 @@ function LeftSide() {
         className="flex items-center h-[52px] hover:bg-gray-200 rounded-[10px] max-w-[330px] w-full cursor-pointer gap-[16px] "
       >
         <div className="w-[36px] h-[36px] rounded-full overflow-hidden">
-          <Image
+          <img
           width={100}
           height={100}
             src={user.profilePicture}

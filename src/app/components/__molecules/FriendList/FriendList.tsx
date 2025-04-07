@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import React, { useState, useEffect } from "react"
 
 interface User {
@@ -65,7 +64,7 @@ export default function FriendList({ initialUsers }: FriendListProps) {
       {users.map((user) => (
         <div key={user.id} className="hover:bg-gray-50 rounded-lg transition-colors w-1/3 p-3">
           <div className="w-full bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
-            <Image
+            <img
             width={100}
             height={100}
               src={user.profilePicture} 
