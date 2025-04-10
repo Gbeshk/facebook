@@ -8,7 +8,7 @@ function SignInFbLogo() {
         src="/images/fblogo.svg"
         width={100}
         height={100}
-        className="w-[320px] h-[106px]"
+        className="w-[320px] h-[106px] max-bg:ml-7"
         alt="Facebook Logo"
       />
     </div>

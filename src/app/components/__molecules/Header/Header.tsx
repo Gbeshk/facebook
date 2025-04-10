@@ -76,7 +76,7 @@ function Header() {
   }
 
   return (
-    <header className="flex items-center justify-between p-4 bg-white shadow-md h-[56px]">
+    <header className="flex fixed w-full items-center top-0 justify-between p-4 bg-white shadow-md h-[56px] z-50">
       <HeaderLeft />
       <Nav />
       {currentUser && (

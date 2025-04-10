@@ -26,7 +26,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string;
   coverPhoto?: string;
@@ -43,12 +42,12 @@ function ProfilePage() {
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [chosen, setChosen] = useState(0);
-
   const calculateAge = (currentUser: User) => {
-    if (currentUser.birthDate) {
-      const birth = new Date(currentUser.birthDate);
+    if (currentUser.year && currentUser.month) {
+      const birth = new Date(currentUser.year, currentUser.month - 1);
       const today = new Date();
       let age = today.getFullYear() - birth.getFullYear();
+
       const monthDiff = today.getMonth() - birth.getMonth();
 
       if (
@@ -207,7 +206,7 @@ function ProfilePage() {
     fetchData();
   }, []);
   const handleCoverPhotoUpdate = (newCover: string) => {
-    setCurrentUser(prev => {
+    setCurrentUser((prev) => {
       if (!prev) return null;
       const updatedUser = { ...prev, coverPhoto: newCover };
       localStorage.setItem("currentUser", JSON.stringify(updatedUser));
@@ -218,21 +217,25 @@ function ProfilePage() {
   if (error) return <div className="text-center p-4 text-red-500">{error}</div>;
   if (!currentUser)
     return <div className="text-center p-4">User not found</div>;
-  console.log(currentUser);
 
   return (
     <>
-      <div className="w-full min-h-screen bg-gray-200 pb-6">
-        <div className="w-full  bg-white ">
-          <CoverPic currentUser={currentUser}  onCoverPhotoUpdate={handleCoverPhotoUpdate} />
-          <div className="h-[128px] bg-white max-w-[1250px] flex mx-auto items-center justify-between relative px-6">
+      <div className="w-full min-h-screen bg-gray-200 pb-6 max-md:px-3">
+        <div className="w-full  bg-gray-100 ">
+          <CoverPic
+            currentUser={currentUser}
+            onCoverPhotoUpdate={handleCoverPhotoUpdate}
+          />
+          <div className="h-[128px] max-md:h-[250px] bg-white max-w-[1250px] flex max-md:flex-col mx-auto max-md:justify-normal items-center justify-between relative px-6">
             <ProfileProfilePic
               currentUser={currentUser}
               fileInputRef={fileInputRef}
               handleProfilePictureChange={handleProfilePictureChange}
             />
             <ProfileName currentUser={currentUser} />
-            <AddStooryBtn />
+            <div className="!mt-5">
+              <AddStooryBtn />
+            </div>
           </div>
           <div className="h-[44px] bg-white max-w-[1250px] mx-auto px-4">
             <Line />
@@ -245,8 +248,8 @@ function ProfilePage() {
           currentUser={currentUser}
           calculateAge={calculateAge}
         />
-        <div className="flex max-w-[1250px] w-full gap-6 mx-auto">
-          <Info currentUser={currentUser} calculateAge={calculateAge} />
+        <div className="flex max-w-[1250px] w-full gap-6 mx-auto max-md:flex-col">
+            <Info currentUser={currentUser} calculateAge={calculateAge} />
           <ProfileRightSide
             chosen={chosen}
             userPosts={userPosts}

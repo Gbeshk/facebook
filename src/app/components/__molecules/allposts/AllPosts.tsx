@@ -7,6 +7,8 @@ import NumberOfLikes from "../NumberOfLikes/NumberOfLikes";
 import LikeButton from "../../__atoms/Likebutton/LikeButton";
 import ShareButton from "../../__atoms/sharebutton/ShareButton";
 import CommentButton from "../../__atoms/CommentButton/CommentButton";
+import Link from "next/link";
+import CommentModal from "../commentModal/CommentModal";
 
 type Post = {
   id: number;
@@ -33,6 +35,43 @@ export default function AllPosts() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [currentUserId, setCurrentUserId] = useState<number | null>(null);
+  const [selectedPostId, setSelectedPostId] = useState<number | null>(null);
+  const [showCommentModal, setShowCommentModal] = useState(false);
+
+  const handleCommentSubmit = async (postId: number, comment: string) => {
+    if (!currentUserId) return;
+
+    try {
+      const response = await fetch("/api/comments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          postId,
+          userId: currentUserId,
+          comment,
+        }),
+      });
+
+      if (!response.ok) throw new Error("Comment submission failed");
+
+      setUsers((prevUsers) =>
+        prevUsers.map((user) => ({
+          ...user,
+          posts: user.posts?.map((post) => {
+            if (post.id === postId) {
+              return {
+                ...post,
+                comments: [...post.comments, `${currentUserId}:${comment}`],
+              };
+            }
+            return post;
+          }),
+        }))
+      );
+    } catch (error) {
+      console.error("Comment error:", error);
+    }
+  };
 
   useEffect(() => {
     const userString = localStorage.getItem("currentUser");
@@ -179,15 +218,41 @@ export default function AllPosts() {
   return (
     <div className="max-w-2xl mt-[20px] space-y-4">
       {allPosts.map((post) => (
-          <div key={post.id} className="bg-white rounded-lg shadow relative">
+        <div key={post.id} className="bg-white rounded-lg shadow relative">
+          <Link
+            href={`/users/${post.userId}`}
+            className="w-full l absolute"
+          ></Link>
           <SaveButton handleSave={handleSave} post={post} />
           <PostHeader post={post} />
           <PostContent post={post} />
           <NumberOfLikes post={post} />
 
-          <div className="flex border-t border-gray-200 text-gray-500 p-1">
+          <div className="flex border-t border-gray-200  text-gray-500 p-1">
             <LikeButton post={post} handleLike={handleLike} />
-            <CommentButton />
+            {showCommentModal && selectedPostId && (
+              <CommentModal
+                postId={selectedPostId}
+                users={users} 
+                comments={
+                  allPosts.find((p) => p.id === selectedPostId)?.comments || []
+                }
+                onClose={() => {
+                  setShowCommentModal(false);
+                  setSelectedPostId(null);
+                }}
+                onSubmitComment={(comment) =>
+                  handleCommentSubmit(selectedPostId, comment)
+                }
+                currentUserId={currentUserId}
+              />
+            )}
+            <CommentButton
+              onClick={() => {
+                setSelectedPostId(post.id);
+                setShowCommentModal(true);
+              }}
+            />{" "}
             <ShareButton />
           </div>
         </div>

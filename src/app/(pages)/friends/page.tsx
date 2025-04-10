@@ -3,7 +3,7 @@ import React from "react";
 
 function Friends() {
   return (
-    <div className="mt-[-24px]">
+    <div className="mt-[-24px] ">
       <FriendsPageClient />
     </div>
   );

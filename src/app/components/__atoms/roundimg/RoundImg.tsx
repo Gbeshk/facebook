@@ -1,7 +1,20 @@
 import React from "react";
-import { Post } from "../../../types/Post";
 import Image from "next/image";
-
+interface Post {
+  id: number;
+  userId: number;
+  content: string;
+  imageUrl?: string;
+  createdAt: string;
+  likes: number;
+  likedBy: number[];
+  comments: string[];
+  savedBy: number[];
+  author?: string;
+  authorPic?: string;
+  isLiked?: boolean;
+  isSaved?: boolean;
+}
 interface RoundImgProps {
   post: Post;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-type Post = {
+interface Post {
   id: number;
   userId: number;
   content: string;
@@ -11,10 +11,9 @@ type Post = {
   savedBy: number[];
   author?: string;
   authorPic?: string;
-  authorId?: number;
-  isSaved: boolean;
-  isLiked: boolean;
-};
+  isLiked?: boolean;
+  isSaved?: boolean;
+}
 interface LikeIconProps {
   handleLike: (postId: number) => Promise<void>;
   post: Post;
@@ -31,9 +30,9 @@ function LikeButton({ handleLike, post }: LikeIconProps) {
         <div className="flex items-center gap-1"></div>
         <div className="relative">
           <i
-            className={`inline-block w-[20px] h-[20px] bg-no-repeat ${
+            className={`inline-block w-[20px] h-[20px] bg-no-repeat  ${
               !post.isLiked
-                ? 'bg-[url("https://static.xx.fbcdn.net/rsrc.php/v4/y6/r/olX2yf1iinG.png")] bg-[0px_-798px] mt-1'
+                ? 'bg-[url("https://static.xx.fbcdn.net/rsrc.php/v4/y6/r/olX2yf1iinG.png")] bg-[0px_-798px] mt-1 icon'
                 : 'bg-[url("https://static.xx.fbcdn.net/rsrc.php/v4/y6/r/olX2yf1iinG.png")] bg-[0px_-736px] mt-1'
             }`}
           />

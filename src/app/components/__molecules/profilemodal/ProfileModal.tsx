@@ -16,7 +16,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string;
   coverPhoto?: string;
@@ -41,7 +40,7 @@ function ProfileModal({
     <>
       {chosen === 3 && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          className="fixed inset-0 bg-gray-50  bg-opacity-75 flex items-center justify-center z-50"
           onClick={() => setChosen(0)}
         >
           <div

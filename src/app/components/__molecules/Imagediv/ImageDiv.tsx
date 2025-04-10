@@ -1,5 +1,8 @@
+"use client";
 import Image from "next/image";
 import React from "react";
+import { useRouter } from "next/navigation";
+
 interface User {
   id: number;
   firstName: string;
@@ -8,12 +11,23 @@ interface User {
   friendRequestsSent: number[];
   friendRequestsReceived: number[];
 }
+
 interface ImageDivProps {
   user: User;
 }
+
 function ImageDiv({ user }: ImageDivProps) {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(`/users/${user.id}`);
+  };
+
   return (
-    <div className="w-full bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center">
+    <div
+      className="w-full bg-gray-200 rounded-lg overflow-hidden mb-2 flex items-center justify-center cursor-pointer"
+      onClick={handleClick}
+    >
       <Image
         width={100}
         height={100}

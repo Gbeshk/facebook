@@ -23,6 +23,7 @@ function NameAndButton({
     <div className="text-center">
       <p className="font-medium">
         {user.firstName} {user.lastName}
+        
       </p>
       <div className="flex justify-center space-x-2 mt-2">
         <button

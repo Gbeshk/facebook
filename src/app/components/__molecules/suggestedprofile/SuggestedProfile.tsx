@@ -22,7 +22,7 @@ function SuggestedProfile({
   return (
     <div
       key={user.id}
-      className="hover:bg-gray-50 rounded-lg transition-colors"
+      className="hover:bg-gray-100 rounded-lg transition-colors"
     >
       <div className="p-3">
         <ImageDiv user={user} />

@@ -127,7 +127,7 @@ function Post() {
 
   return (
     <>
-      <div className="max-w-2xl h-[124px] bg-white mt-[20px] shadow-lg rounded-lg p-4">
+      <div className="max-w-2xl w-full min-w-[450px] max-sm:min-w-[300px] h-[124px] bg-white mt-[20px] shadow-lg rounded-lg p-4">
         <div className="flex items-center gap-3">
           <ProfilePic user={user} getUserInitials={getUserInitials} />
           <PostInput setIsModalOpen={setIsModalOpen} />

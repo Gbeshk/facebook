@@ -1,20 +1,20 @@
 import Image from 'next/image';
 import React from 'react'
-type Post = {
-    id: number;
-    userId: number;
-    content: string;
-    imageUrl?: string;
-    createdAt: string;
-    likes: number;
-    likedBy: number[];
-    comments: string[];
-    savedBy: number[];
-    author?: string;
-    authorPic?: string;
-    authorId?: number;
-    isSaved: boolean;
-  };
+interface Post {
+  id: number;
+  userId: number;
+  content: string;
+  imageUrl?: string;
+  createdAt: string;
+  likes: number;
+  likedBy: number[];
+  comments: string[];
+  savedBy: number[];
+  author?: string;
+  authorPic?: string;
+  isLiked?: boolean;
+  isSaved?: boolean;
+}
   interface PostContentProps {
     post: Post;
   }

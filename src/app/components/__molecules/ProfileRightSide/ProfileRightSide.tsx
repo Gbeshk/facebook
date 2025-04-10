@@ -19,7 +19,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string ;
   coverPhoto?: string;

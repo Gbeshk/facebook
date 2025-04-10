@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-type Post = {
+interface Post {
   id: number;
   userId: number;
   content: string;
@@ -13,9 +13,9 @@ type Post = {
   savedBy: number[];
   author?: string;
   authorPic?: string;
-  authorId?: number;
-  isSaved: boolean
-};
+  isLiked?: boolean;
+  isSaved?: boolean;
+}
 interface SavedButtonProps {
   handleSave: (postId: number) => Promise<void>;
 

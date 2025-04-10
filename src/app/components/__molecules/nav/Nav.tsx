@@ -1,19 +1,47 @@
 "use client";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
+
 const Nav = () => {
   const [selectedIcon, setSelectedIcon] = useState(0);
-
+  const router = useRouter();
+  const pathname = usePathname();
+  const handleClick = () => {
+    router.push("/friends");
+  };
+  const handleHomeClick = () => {
+    router.push("/home");
+  };
+  useEffect(() => {
+    if (pathname == "/friends") {
+      setSelectedIcon(1);
+    }
+    const userRouteRegex = /^\/users(\/\d+)?$/;
+    if (userRouteRegex.test(pathname)) {
+      setSelectedIcon(5);
+    }
+    if (pathname == "/profile" || pathname == "/saved") {
+      setSelectedIcon(5);
+    }
+    if (pathname == "/home") {
+      setSelectedIcon(0);
+    }
+  }, [pathname]);
   return (
     <>
-      <div className="flex space-x-2">
+      <div className="flex space-x-2 ml-[47px] max-lg:hidden">
         <div
-          className={`w-[102px] h-[56px] hover:bg-gray-100 flex items-center rounded-[15%] justify-center cursor-pointer
+          className={`w-[102px] h-[56px]  hover:bg-gray-100 flex items-center rounded-[15%] justify-center cursor-pointer
           ${
             selectedIcon === 0
               ? "border-b-[3px] border-solid border-blue-500 rounded-b-none"
               : ""
           }`}
-          onClick={() => setSelectedIcon(0)}
+          onClick={() => {
+            handleHomeClick();
+            setSelectedIcon(0);
+          }}
         >
           {selectedIcon === 0 ? (
             <svg viewBox="0 0 24 24" width="24" height="24" fill="#0866ff">
@@ -40,6 +68,7 @@ const Nav = () => {
           }`}
           onClick={() => {
             setSelectedIcon(1);
+            handleClick();
           }}
         >
           {selectedIcon === 1 ? (

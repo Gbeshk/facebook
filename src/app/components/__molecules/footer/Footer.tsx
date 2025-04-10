@@ -8,7 +8,7 @@ function Footer() {
   if (pathname === "/signin" || pathname === "/signup" || pathname === "/") {
     return (
       <>
-        <div className="fixed bottom-0 left-0 right-0 flex justify-center flex-col pb-[36px]">
+        <div className="pb-[36px] flex justify-center flex-col">
           <div className="flex w-[100%] items-center justify-center">
             <div className="flex max-w-[700px] w-full flex-wrap mt-[24px]">
               <p className="text-xs text-[#65676b] text-center hover:underline ml-3 cursor-pointer">

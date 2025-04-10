@@ -102,10 +102,10 @@ function SignUpForm() {
       </div>
       <p className="text-xs text-gray-600">Birthday</p>
       <div className="flex gap-3">
-        <div>
+        <div className="w-[33%]">
           <select
             {...register("day")}
-            className="border border-gray-300 rounded-md text-sm w-[124px] h-[36px]"
+            className="border border-gray-300 rounded-md text-sm w-full h-[36px]"
           >
             <option value="">Day</option>
             {Array.from({ length: 31 }, (_, i) => i + 1).map((day) => (
@@ -118,10 +118,10 @@ function SignUpForm() {
             <p className="text-red-500 text-xs  mt-1">Must be selected</p>
           )}
         </div>
-        <div>
+        <div className="w-[32%]">
           <select
             {...register("month")}
-            className="border border-gray-300 rounded-md text-sm w-[124px] h-[36px]"
+            className="border border-gray-300 rounded-md text-sm w-full h-[36px]"
           >
             <option value="">Month</option>
             {months.map((month, index) => (
@@ -134,10 +134,10 @@ function SignUpForm() {
             <p className="text-red-500 text-xs  mt-1">Must be selected</p>
           )}
         </div>
-        <div>
+        <div className="w-[33%]">
           <select
             {...register("year")}
-            className="border border-gray-300 rounded-md h-[36px] text-sm w-[124px]"
+            className="border border-gray-300 rounded-md h-[36px] text-sm w-full"
           >
             <option value="">Year</option>
             {years.map((year) => (

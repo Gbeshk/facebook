@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { ThemeToggle } from "../ThemeToggle/ThemeToggle";
 
 export interface Post {
   id: number;
@@ -45,7 +47,7 @@ function HeaderRight({
   setAllUsers,
 }: HeaderRightProps) {
   const [selectedIcon, setSelectedIcon] = useState<number | null>(null);
-
+  const router = useRouter();
   const incomingRequests = currentUser.friendRequestsReceived
     .map((requestId) => allUsers.find((user) => user.id === requestId))
     .filter((user): user is User => !!user);
@@ -96,12 +98,17 @@ function HeaderRight({
         </a>
       </div>
 
-      <div className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200">
+      <div
+        onClick={() => {
+          setSelectedIcon(0);
+        }}
+        className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200"
+      >
         <svg
           viewBox="0 0 12 12"
           width="20"
           height="20"
-          fill="currentColor"
+          fill={selectedIcon === 0 ? "#0866ff" : "currentColor"}
           aria-hidden="true"
         >
           <g stroke="none" stroke-width="1" fill-rule="evenodd">
@@ -113,12 +120,17 @@ function HeaderRight({
         </svg>
       </div>
 
-      <div className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200">
+      <div
+        className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200"
+        onClick={() => {
+          setSelectedIcon(1);
+        }}
+      >
         <svg
           viewBox="0 0 24 24"
           width="20"
           height="20"
-          fill="currentColor"
+          fill={selectedIcon === 1 ? "#0866ff" : "currentColor"}
           aria-hidden="true"
         >
           <path d="M18.5 1A1.5 1.5 0 0 0 17 2.5v3A1.5 1.5 0 0 0 18.5 7h3A1.5 1.5 0 0 0 23 5.5v-3A1.5 1.5 0 0 0 21.5 1h-3zm0 8a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 21.5 9h-3zm-16 8A1.5 1.5 0 0 0 1 18.5v3A1.5 1.5 0 0 0 2.5 23h3A1.5 1.5 0 0 0 7 21.5v-3A1.5 1.5 0 0 0 5.5 17h-3zm8 0A1.5 1.5 0 0 0 9 18.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm8 0a1.5 1.5 0 0 0-1.5 1.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3a1.5 1.5 0 0 0-1.5-1.5h-3zm-16-8A1.5 1.5 0 0 0 1 10.5v3A1.5 1.5 0 0 0 2.5 15h3A1.5 1.5 0 0 0 7 13.5v-3A1.5 1.5 0 0 0 5.5 9h-3zm0-8A1.5 1.5 0 0 0 1 2.5v3A1.5 1.5 0 0 0 2.5 7h3A1.5 1.5 0 0 0 7 5.5v-3A1.5 1.5 0 0 0 5.5 1h-3zm8 0A1.5 1.5 0 0 0 9 2.5v3A1.5 1.5 0 0 0 10.5 7h3A1.5 1.5 0 0 0 15 5.5v-3A1.5 1.5 0 0 0 13.5 1h-3zm0 8A1.5 1.5 0 0 0 9 10.5v3a1.5 1.5 0 0 0 1.5 1.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 13.5 9h-3z"></path>
@@ -130,9 +142,19 @@ function HeaderRight({
           className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200"
           onClick={() => setSelectedIcon((prev) => (prev === 2 ? null : 2))}
         >
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill={selectedIcon === 2 ? "#0866ff" : "currentColor"}
+          >
             <path d="M3 9.5a9 9 0 1 1 18 0v2.927c0 1.69.475 3.345 1.37 4.778a1.5 1.5 0 0 1-1.272 2.295h-4.625a4.5 4.5 0 0 1-8.946 0H2.902a1.5 1.5 0 0 1-1.272-2.295A9.01 9.01 0 0 0 3 12.43V9.5zm6.55 10a2.5 2.5 0 0 0 4.9 0h-4.9z" />
           </svg>
+          {incomingRequests.length > 0 && (
+            <div className="absolute bg-red-500 text-white top-[-8px] left-[20px] rounded-[50%] w-[20px] h-[20px] flex items-center justify-center">
+              {incomingRequests.length}
+            </div>
+          )}
         </div>
 
         {selectedIcon === 2 && (
@@ -184,6 +206,57 @@ function HeaderRight({
           </div>
         )}
       </div>
+      <div className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200">
+        <Image
+          alt="profilepic"
+          className="w-full h-full  rounded-[50%]"
+          width={100}
+          height={100}
+          onClick={() => {
+            if (selectedIcon == 3) {
+              setSelectedIcon(null);
+            } else setSelectedIcon(3);
+          }}
+          src={currentUser.profilePicture}
+        ></Image>
+      </div>
+      {selectedIcon === 3 && (
+        <div className="absolute top-12 right-0 w-[160px] gap-[20px] h-auto px-5 bg-white rounded-lg shadow-lg border flex flex-col justify-center border-gray-200 z-50 p-2">
+         
+          <div className="flex">
+          <div className="w-[40px] h-[40px] rounded-[50%] flex items-center justify-center cursor-pointer bg-gray-200">
+          <ThemeToggle />
+            </div>
+            <h1 className="font-semibold mt-2 ml-4 text-lg">Mode</h1>
+          </div>
+          <div
+            onClick={() => {
+              localStorage.removeItem("currentUser");
+
+              setCurrentUser(null);
+              router.push("/signin");
+            }}
+            className=" cursor-pointer flex items-center justify-between"
+          >
+            <div className="w-[40px] h-[40px] rounded-[50%] mt-[-10px] flex items-center justify-center cursor-pointer bg-gray-200">
+              <i
+              className="icon"
+                style={{
+                  backgroundImage:
+                    'url("https://static.xx.fbcdn.net/rsrc.php/v4/ye/r/BLWcLnvjOkk.png")',
+                  backgroundPosition: "0px -365px",
+                  backgroundSize: "auto",
+                  width: "20px",
+                  height: "20px",
+                  backgroundRepeat: "no-repeat",
+                  display: "inline-block",
+                }}
+              />
+            </div>
+            <h1 className="text-lg font-semibold mb-4">Log Out</h1>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

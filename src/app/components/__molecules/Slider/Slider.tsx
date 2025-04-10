@@ -51,8 +51,8 @@ const Slider = () => {
 
   return (
     <>
-      <div className="w-full max-w-2xl mt-[20px]">
-        <Swiper slidesPerView={6} spaceBetween={5} className="mySwiper">
+      <div className="mt-[20px] max-w-2xl max-xl:hidden">
+        <Swiper slidesPerView={6} spaceBetween={5} className="mySwiper max-w-2xl">
           {stories.map((image, index) => (
             <SwiperSlide key={index}>
               <div className="relative group max-w-sm">
@@ -65,7 +65,7 @@ const Slider = () => {
                   onClick={() => openModal(index)}
                 />
                 <Image
-                  className="w-full h-[200px] object-cover rounded-[8px] cursor-pointer"
+                  className="max-w-full h-[200px] object-cover rounded-[8px] cursor-pointer"
                   src={image}
                   alt="Random Image"
                   width={117}
@@ -80,7 +80,7 @@ const Slider = () => {
 
       {isModalOpen && currentImageIndex !== null && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
+          className="fixed inset-0 bg-gray-400 bg-opacity-50 flex justify-center items-center z-50"
           onClick={closeModal}
         >
           <div className="relative" onClick={(e) => e.stopPropagation()}>

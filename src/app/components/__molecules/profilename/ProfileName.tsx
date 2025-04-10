@@ -15,7 +15,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string;
   coverPhoto?: string;
@@ -30,8 +29,8 @@ interface ProfileNameProps {
 function ProfileName({currentUser} : ProfileNameProps) {
   return (
     <>
-       <div className="flex ml-[-20px]">
-              <div className="w-[200px] "></div>
+       <div className="flex ml-[-20px]  max-md:mt-[100px] max-md:mx-auto max-md:text-center">
+              <div className="w-[200px] max-md:hidden"></div>
               <div>
                 <h1 className="text-[30px] font-bold">
                   {currentUser.firstName} {currentUser.lastName}

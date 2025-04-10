@@ -16,7 +16,6 @@ interface Post {
     firstName: string;
     lastName: string;
     email: string;
-    birthDate: string;
     gender: string;
     profilePicture: string;
     coverPhoto?: string;
@@ -75,11 +74,12 @@ function CoverPic({ currentUser, onCoverPhotoUpdate }: CoverPicProps) {
 
       <div className="absolute inset-0 flex items-end justify-end p-4  transition-opacity">
         <button
-          className="flex items-center gap-2 bg-white/90 px-4 py-2 rounded-lg shadow-md hover:bg-white transition-all"
+          className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-md hover:bg-white transition-all"
           onClick={() => fileInputRef.current?.click()}
         >
           <i
                 aria-hidden="true"
+                className="icon"
                 style={{
                   backgroundImage:
                     "url(https://static.xx.fbcdn.net/rsrc.php/v4/yW/r/aKcKFdhIVU9.png)",
@@ -91,7 +91,7 @@ function CoverPic({ currentUser, onCoverPhotoUpdate }: CoverPicProps) {
                   display: "inline-block",
                 }}
               />
-          <span className="text-sm font-medium">Change Cover Photo</span>
+          <span className="text-sm font-medium max-md:hidden">Change Cover Photo</span>
         </button>
         <input
           type="file"

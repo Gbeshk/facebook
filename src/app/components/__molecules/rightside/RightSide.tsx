@@ -2,6 +2,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 interface User {
   id: number;
@@ -16,6 +17,8 @@ function RightSide() {
   const [loading, setLoading] = useState(true);
 
   const isHomePage = pathname === "/home";
+  const isSavedPage = pathname === "/saved";
+
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -64,13 +67,14 @@ function RightSide() {
   return (
     <div
       className={` h-screen max-w-[400px] w-full p-4 overflow-y-auto ${
-        isHomePage ? "bg-gray-100" : "bg-white "
+        (isHomePage || isSavedPage) ? "bg-gray-100" : "bg-white "
       }`}
     >
       <h2 className="text-xl font-bold text-gray-800 mb-6 pl-2">All Users</h2>
-      <div className="space-y-4">
+      <div className="space-y-4 rounded-lg">
         {users.map((user) => (
-          <div
+          <Link
+            href={`/users/${user.id}`}
             key={user.id}
             className="flex items-center p-2 hover:bg-gray-100 rounded-xl transition-colors"
           >
@@ -80,7 +84,7 @@ function RightSide() {
                 alt={`${user.firstName} ${user.lastName}`}
                 width={48}
                 height={48}
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </div>
             <div className="ml-3">
@@ -88,7 +92,7 @@ function RightSide() {
                 {user.firstName} {user.lastName}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

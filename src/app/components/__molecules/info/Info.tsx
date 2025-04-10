@@ -15,7 +15,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string;
   coverPhoto?: string;
@@ -31,7 +30,7 @@ interface InfoProps {
 function Info({currentUser, calculateAge}:InfoProps) {
   return (
     <>
-        <div className="w-[50%]">
+        <div className="max-w-xl w-full max-md:max-w-2xl">
             <div className="bg-white rounded-lg shadow p-4 mt-5  w-full">
               <h2 className="text-xl font-bold mb-4">About</h2>
               <div className="space-y-3">

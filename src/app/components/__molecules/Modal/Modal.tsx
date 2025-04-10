@@ -27,10 +27,10 @@ function Modal({
   return (
     <>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-gray-50 bg-opacity-75 flex justify-center items-center z-50">
           <div
             ref={modalRef}
-            className="relative bg-white w-[500px] p-6 rounded-lg"
+            className="relative bg-white w-[500px]  p-6 rounded-lg"
           >
             <button
               className="absolute top-4 right-4 text-black text-2xl"
@@ -47,7 +47,7 @@ function Modal({
                 value={postText}
                 onChange={(e) => setPostText(e.target.value)}
                 placeholder="Write something..."
-                className="w-full h-[40px] border border-gray-300 p-2 rounded-md mb-4"
+                className="w-full h-[40px] border border-gray-300 p-2 rounded-md mb-4 bg-white"
               />
               {imagePreview && (
                 <div className="relative mb-4">

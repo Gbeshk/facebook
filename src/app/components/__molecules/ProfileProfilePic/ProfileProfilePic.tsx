@@ -16,7 +16,6 @@ interface User {
   firstName: string;
   lastName: string;
   email: string;
-  birthDate: string;
   gender: string;
   profilePicture: string;
   coverPhoto?: string;
@@ -41,7 +40,7 @@ function ProfileProfilePic({
     <>
       {currentUser.profilePicture ? (
         <>
-          <div className=" w-[174px] h-[174px] rounded-full border-2 border-white overflow-hidden absolute top-[-60px] left-[20px]">
+          <div className="w-[174px] h-[174px] rounded-full max-md:top-[-70px] border-2 border-white overflow-hidden absolute top-[-60px] max-md:left-[1/2]">
             <Image
               alt="Profile picture"
               width={174}
@@ -50,13 +49,14 @@ function ProfileProfilePic({
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="absolute flex items-center justify-center cursor-pointer left-[140px] top-[70px] w-[40px] rounded-[50%] h-[40px] bg-gray-200">
+          <div className="absolute flex items-center justify-center cursor-pointer left-[140px] max-md:left-[55%] top-[70px] w-[40px] rounded-[50%] h-[40px] bg-gray-200">
             <div
               onClick={() => fileInputRef.current?.click()}
               className="flex items-center justify-center w-full h-full"
             >
               <i
                 aria-hidden="true"
+                className="icon"
                 style={{
                   backgroundImage:
                     "url(https://static.xx.fbcdn.net/rsrc.php/v4/yW/r/aKcKFdhIVU9.png)",

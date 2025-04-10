@@ -69,35 +69,50 @@ export default function SavedPost({
         <p className="max-w-2xl mt-[20px] text-center ml-4 text-[30px] font-bold">
           No saved posts found.
         </p>
+        {!isProfilePage && (
+          <div className="max-md:hidden inline-block  max-w-[400px] w-full mt-1">
+            <RightSide />
+          </div>
+        )}
       </div>
     );
   }
 
   return (
-    <div className="flex justify-between">
-      {!isProfilePage && <LeftSide />}
-      <div className="max-w-2xl w-full mt-[20px] space-y-4">
-        <h1 className="text-[30px] font-bold">Saved Posts</h1>
-        {savedPosts.map((post) => (
-          <div key={post.id} className="bg-white rounded-lg shadow relative">
-            <SaveButton handleSave={onSave} post={post} />
-            <PostHeader post={post} />
-            <PostContent post={post} />
-            <NumberOfLikes post={post} />
-
-            <div className="flex border-t border-gray-200 text-gray-500 p-1">
-              <LikeButton post={post} handleLike={onLike} />
-              <CommentButton />
-              <ShareButton />
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="flex  w-full min-h-screen ">
+      <div
+        className={`flex justify-between max-lg:px-5 mx-auto w-[1900px] ${
+          isProfilePage ? "bg-none" : "bg-gray-100"
+        }`}
+      >
         {!isProfilePage && (
-          <div className="max-w-[400px] w-full mt-2">
+          <div className="block  max-lg:hidden lg:max-w-[400px] lg:w-full">
+            <LeftSide />
+          </div>
+        )}
+        <div className="max-w-2xl w-full mt-[20px] space-y-4 mx-auto">
+          <h1 className="text-[30px] font-bold">Saved Posts</h1>
+          {savedPosts.map((post) => (
+            <div key={post.id} className="bg-white shadow relative rounded-lg">
+              <SaveButton handleSave={onSave} post={post} />
+              <PostHeader post={post} />
+              <PostContent post={post} />
+              <NumberOfLikes post={post} />
+
+              <div className="flex border-t border-gray-200 text-gray-500 p-1">
+                <LikeButton post={post} handleLike={onLike} />
+                <CommentButton onClick={() => {}} />
+                <ShareButton />
+              </div>
+            </div>
+          ))}
+        </div>
+        {!isProfilePage && (
+          <div className="max-md:hidden inline-block  max-w-[400px] w-full mt-1">
             <RightSide />
           </div>
         )}
       </div>
+    </div>
   );
 }

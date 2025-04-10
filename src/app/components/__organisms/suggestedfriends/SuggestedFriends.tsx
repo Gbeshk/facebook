@@ -43,20 +43,24 @@ function SuggestedFriends({
   return (
     <>
       <div className="flex items-center justify-center">
-        <div className="flex justify-between w-[1900px]  rounded-lg bg-white mt-6">
-          {!isProfilePage && <LeftSide />}
+        <div className="flex n w-[1900px]  rounded-lg bg-white mt-6">
+          {!isProfilePage && (
+            <div className="block  max-lg:hidden lg:max-w-[400px] lg:w-full">
+              <LeftSide />
+            </div>
+          )}
           <div className="min-h-screen">
             <div className="rounded-lg overflow-hidden">
               {friends.length > 0 && (
                 <>
-                  <div>
+                  <div className="mx-auto">
                     <h2 className="font-bold text-3xl mt-6 ml-3">Friends</h2>
                   </div>
                   <div className="flex flex-wrap mt-2">
                     {friends.map((user) => (
                       <div
                         key={user.id}
-                        className="hover:bg-gray-50 rounded-lg transition-colors "
+                        className="hover:bg-gray-100 rounded-lg transition-colors "
                       >
                         <div className="p-3">
                           <ImageDiv user={user} />
@@ -103,7 +107,11 @@ function SuggestedFriends({
               )}
             </div>
           </div>
-          {!isProfilePage && <RightSide />}
+          {!isProfilePage && (
+            <div className="max-md:hidden inline-block  max-w-[400px] w-full">
+              <RightSide />
+            </div>
+          )}
         </div>
       </div>
     </>
